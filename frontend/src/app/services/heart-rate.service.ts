@@ -2,12 +2,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/dev';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HeartRateService {
-  private apiUrl = 'YOUR_FLASK_BACKEND_API_URL';
+  
+  private apiUrl = environment.apiBase;
 
   constructor(private http: HttpClient) { }
 

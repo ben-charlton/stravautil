@@ -1,0 +1,16 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summary-card {
+    width: calc(50% - 10px); /* Adjust width as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .chart-container {
+    height: 300px; /* Set desired height for the chart */
+  }

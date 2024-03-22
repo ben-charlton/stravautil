@@ -1,11 +1,11 @@
 // heart-rate-summary.component.ts
-import { Component, OnInit } from '@angular/core';
-import { HeartRateService } from './heart-rate.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { HeartRateService } from '../../services/heart-rate.service';
 import Chart from 'chart.js/auto';
 
 
 @Component({
-  selector: 'app-heart-rate-summary',
+  selector: 'heart-rate-summary',
   templateUrl: './heart-rate-summary.component.html',
   styleUrls: ['./heart-rate-summary.component.css']
 })

@@ -1,15 +1,12 @@
-import json
-import os
-import pathlib
+
 from flask import session
 import pandas as pd 
-#import matplotlib.pyplot as plt
 import numpy as np
 import requests
 from datetime import datetime, timedelta
     
 import time    
-
+'''
 def _get_activity_ids_from_period(period=None):
     id_list = []
     d = (datetime.today() - timedelta(days=period)).timestamp()
@@ -18,15 +15,7 @@ def _get_activity_ids_from_period(period=None):
         id_list.append(obj['id'])
     return id_list
 
-def _send_strava_request(path=None):
-    url = 'https://www.strava.com/api/v3/' + path #os.environ('BASE_URL') + path
-    token = '' #session['access-token']
-    header:dict = {'Authorization': f'Bearer {token}'}
-    response = requests.get(url, headers=header)
-    if response.ok:    
-        return response.json()
-    else: 
-        return ''
+
 
 def _get_zones(data=None):
     data = pd.json_normalize(data, record_path=['splits_metric'], meta=['id', 'sport_type', 'start_date'])
@@ -118,7 +107,6 @@ if activities:
     visualize_hr_zone_summary(activities)
 
 
-'''
 GET https://www.strava.com/api/v3/activities/10850323761
     "name": "Morning Run",
     "distance": 7471.4,
