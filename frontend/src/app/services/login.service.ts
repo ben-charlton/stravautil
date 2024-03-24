@@ -12,7 +12,7 @@ export class LoginService {
 
     constructor(private http: HttpClient) { }
 
-    loginWithStrava(): Observable<any> {
-        return this.http.get<any>(`${this.baseUrl}/auth/login`);
-    }
+    //loginWithStrava(): Observable<any> {
+    //    return this.http.get<any>(`${this.baseUrl}/auth/login`);
+   // }
 }

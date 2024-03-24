@@ -3,6 +3,8 @@ from flask import Flask, redirect, url_for
 from api.auth import auth_bp
 from api.activity import activity_bp
 import os
+from flask_cors import CORS
+
 
 '''--------------------------------------
 APP DEFINITION
@@ -14,6 +16,7 @@ app.register_blueprint(activity_bp, url_prefix='/activity')
 app.config.from_object('config')  
 app.secret_key=os.environ['SECRET_KEY']
 load_dotenv()
+cors = CORS(app, resources={r"/*": {"origins": "http://localhost*"}})  # Enable CORS for specific routes
 
 # Redirect root URL to login page
 @app.route('/')

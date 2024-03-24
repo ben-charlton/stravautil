@@ -4,7 +4,7 @@
   }
   
   .summary-card {
-    width: calc(50% - 10px); /* Adjust width as needed */
+    width: calc(50% - 10px); 
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -12,5 +12,5 @@
   }
   
   .chart-container {
-    height: 300px; /* Set desired height for the chart */
+    height: 300px;
   }

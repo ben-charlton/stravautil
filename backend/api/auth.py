@@ -13,7 +13,7 @@ def strava_login():
 def strava_logout():
     return logout()
 
-@auth_bp.route('/authorized')
+@auth_bp.route('/callback')
 def strava_authorized():
     return authorized()
 
