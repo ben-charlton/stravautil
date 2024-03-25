@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
     heartRateSummaryData: any;
     effortSummaryData: any;
+    authService: AuthService;
   
-    constructor() { }
+    accessToken: string | null = null;
+  
+    constructor(private route: ActivatedRoute) {}
   
     ngOnInit(): void {
+
     }
 
 }

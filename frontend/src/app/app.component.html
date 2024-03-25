@@ -1,9 +1,10 @@
-<div class="container">
-    <h1>Strava User Dashboard</h1>
-    <div class="dashboard">
-        <app-login></app-login>
-   <!--  <heart-rate-summary></heart-rate-summary>
-       Add other components for displaying additional stats (e.g., distance, duration, etc.) -->
-    </div>
+<div *ngIf="isLoggedIn()">
+    <!-- show dashboard when logged in -->
+     <!-- <app-dashboard></app-dashboard> -->
+  </div>
+  <div *ngIf="!isLoggedIn()">
+    <!-- Show login component when user is not logged in -->
+    <app-login></app-login>
 </div>
-
+  
+<router-outlet></router-outlet>

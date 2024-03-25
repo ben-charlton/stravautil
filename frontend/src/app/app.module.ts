@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeartRateSummaryComponent } from './components/heart-rate-summary/heart-rate-summary.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthCallbackComponent } from './components/login/auth-callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HeartRateSummaryComponent,
-    LoginComponent
+    LoginComponent, 
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,

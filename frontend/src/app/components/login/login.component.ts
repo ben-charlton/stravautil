@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,10 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent {
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
-  loginWithStrava(): void {
-    window.location.href = 'http://www.strava.com/oauth/authorize?client_id=121489&response_type=code&redirect_uri=http://127.0.0.1:5000/auth/callback&approval_prompt=force&scope=activity:read_all,profile:read_all';
-
-    //this.loginService.loginWithStrava().subscribe(() => {
-      // Redirect or handle success response
-     // this.router.navigate(['/dashboard']);
-    //});
+  login(): void {
+    this.authService.login()
   }
+  
 }

@@ -6,23 +6,14 @@ import os
 from flask_cors import CORS
 
 
-'''--------------------------------------
-APP DEFINITION
-'''
-
 app = Flask(__name__)
-app.register_blueprint(auth_bp, url_prefix='/auth')
-app.register_blueprint(activity_bp, url_prefix='/activity')
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 app.config.from_object('config')  
 app.secret_key=os.environ['SECRET_KEY']
 load_dotenv()
-cors = CORS(app, resources={r"/*": {"origins": "http://localhost*"}})  # Enable CORS for specific routes
-
-# Redirect root URL to login page
-@app.route('/')
-def index():
-    return redirect(url_for('auth.strava_login'))
-
+app.register_blueprint(auth_bp, url_prefix='/auth')
+app.register_blueprint(activity_bp, url_prefix='/activity')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
