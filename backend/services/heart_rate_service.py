@@ -8,7 +8,6 @@ from services.activity_service import *
 from services.strava_service import send_strava_request
 
 def _get_zones(token): 
-    
     strava_zones = send_strava_request(token, "athlete/zones")['heart_rate']['zones']
     return {
         "Zone 1": strava_zones[0],
