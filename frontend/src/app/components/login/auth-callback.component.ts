@@ -15,32 +15,22 @@ export class AuthCallbackComponent implements OnInit {
     ) {}
   
     ngOnInit(): void {
-        // Extract authorization code from query parameters
 
         const code = this.route.snapshot.queryParams['code'];
     
         if (code) {
-          // Call AuthService to exchange code for token
           this.authService.handleOAuthCallback(code).subscribe(
-            (accessToken: string) => {
-              // Token exchange successful
-              // Store access token (e.g., in local storage)
-              localStorage.setItem('accessToken', accessToken);
-    
-              // Redirect to dashboard or any other route
+            (accessToken) => {
+              localStorage.setItem('accessToken', accessToken.access_token.toString());
               this.router.navigate(['/dashboard']);
             },
             (error) => {
-              // Handle error (e.g., display error message)
               console.error('Failed to exchange code for token:', error);
-              // Redirect to error page or login page
               this.router.navigate(['/login']);
             }
           );
         } else {
-          // Authorization code not found in query parameters
-          console.error('Authorization code not found in query parameters');
-          // Redirect to error page or login page
+          console.error('Code not found in query params');
           this.router.navigate(['/login']);
         }
       }

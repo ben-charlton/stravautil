@@ -1,10 +1,45 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-card {
-    width: 300px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  width: 300px;
+  background-color: #fc4c02; /* Strava orange */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-card mat-card-header {
+  background-color: #fc4c02; /* Strava orange */
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.login-card mat-card-title {
+  font-size: 24px;
+}
+
+.login-card mat-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card button {
+  background-color: #fc4c02; /* Strava orange */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #e63d00; /* Darker shade of Strava orange on hover */
+}

@@ -1,14 +1,15 @@
-<div>
-    <canvas id="heartRateChart" width="400" height="400"></canvas>
+<div class="heart-rate-summary">
+  <h2>Weekly Heart Rate Summary</h2>
+  <p>Number of minutes spent in each zone</p>
+  <select [(ngModel)]="selectedDays">
+    <option value="1">Last day</option>
+    <option value="7">Last 7 days</option>
+    <option value="14">Last 14 days</option>
+    <option value="30">Last 30 days</option>
+  </select>
+  <button (click)="generateSummary()">Generate Summary</button>
+  <canvas #heartRateChart *ngIf="showChart" width="400" height="400" id="heartRateChart"></canvas>
+  <div *ngIf="showSpinner" class="spinner-overlay">
+    <div class="spinner"></div>
   </div>
-
-<!--
-  <div *ngIf="weeklySummary">
-    <p>Average Distance: {{ weeklySummary.averageDistance }}</p>
-    <p>Average Duration: {{ weeklySummary.averageDuration }}</p>
-    
-  </div>   -->
-  <div> <!-- *ngIf="!weeklySummary"> -->
-    <p>Loading...</p> 
-  </div>
-
+</div>

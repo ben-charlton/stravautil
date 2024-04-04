@@ -1,12 +1,4 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
+app-root {
+  display: block;
+  height: 90vh;
+}

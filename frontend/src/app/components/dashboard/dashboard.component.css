@@ -1,16 +1,19 @@
 .dashboard {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .summary-card {
-    width: calc(50% - 10px); 
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .chart-container {
-    height: 300px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  height: 90vh;
+  margin: 10px; 
+  margin-right: 35px;
+}
+
+
+.chart-container {
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px; 
+  margin-right: 35px;
+}

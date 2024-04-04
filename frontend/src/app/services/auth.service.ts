@@ -18,7 +18,7 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     login(): Observable<string> {
-        window.location.href = 'https://www.strava.com/oauth/authorize?client_id=121489&redirect_uri=http://localhost:4200/callback&response_type=code&scope=read,activity:read_all';
+        window.location.href = 'https://www.strava.com/oauth/authorize?client_id=121489&redirect_uri=http://localhost:4200/callback&response_type=code&scope=activity:read_all,profile:read_all';
         return new Observable<string>();
     } 
 

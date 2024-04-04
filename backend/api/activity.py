@@ -1,4 +1,4 @@
-from flask import Blueprint, session, redirect, request
+from flask import Blueprint
 from services.activity_service import *
 
 activity_bp = Blueprint('activity', __name__)
