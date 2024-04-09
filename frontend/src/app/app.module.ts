@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms'; 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeartRateSummaryComponent } from './components/heart-rate-summary/heart-rate-summary.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthCallbackComponent } from './components/login/auth-callback.component';
+import { CadenceSummaryComponent } from './components/cadence-summary/cadence-summary.component';
 
 @NgModule({
   declarations: [
@@ -18,16 +19,18 @@ import { AuthCallbackComponent } from './components/login/auth-callback.componen
     DashboardComponent,
     HeartRateSummaryComponent,
     LoginComponent, 
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    CadenceSummaryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 

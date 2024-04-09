@@ -7,15 +7,15 @@ import { environment } from 'src/environments/dev';
   providedIn: 'root'
 })
 
-export class HeartRateService {
+export class CadenceService {
   
   private apiUrl = environment.apiBase;
 
   constructor(private http: HttpClient) { }
 
-  getHeartRateZoneSummary(days: number): Observable<any> {
+  getCadenceSummary(days: number): Observable<any> {
     const token = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<any>(`${this.apiUrl}/heart/heart-rate-summary?days=${days}`, { headers });
+    return this.http.get<any>(`${this.apiUrl}/cadence/cadence-summary?days=${days}`, { headers });
   }
 }

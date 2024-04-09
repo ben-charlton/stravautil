@@ -28,6 +28,7 @@ export class HeartRateSummaryComponent {
     this.showSpinner = true;
 
     this.heartRateService.getHeartRateZoneSummary(this.selectedDays).subscribe(data => {
+      
       this.showChart = true;
 
       setTimeout(()=>{                           
