@@ -1,5 +1,5 @@
 import { CadenceService } from './../../services/cadence.service';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration } from 'chart.js';
 import { formatDate } from '@angular/common'; // Import formatDate function
 
@@ -12,11 +12,13 @@ import { formatDate } from '@angular/common'; // Import formatDate function
 
 export class CadenceSummaryComponent {
   @ViewChild('cadenceChart') cadenceChart: ElementRef;
+  @Input() selectedDays: number = 7; // Default value for number of days
+  @Output() summaryGenerated: EventEmitter<void> = new EventEmitter<void>();
+
 
   showChart: boolean = false;
   showSpinner: boolean = false;
   cadenceSummaryData: any = {};
-  selectedDays: number = 7; 
   chartInstance: Chart;
 
   constructor(private cadenceService : CadenceService) {}
@@ -39,6 +41,7 @@ export class CadenceSummaryComponent {
       console.error('Error fetching cadence summary:', error);
       this.showSpinner = false; // Hide spinner in case of error
     });
+    this.summaryGenerated.emit();
   }
 
 

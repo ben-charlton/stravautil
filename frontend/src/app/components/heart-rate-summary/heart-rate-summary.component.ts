@@ -1,5 +1,5 @@
 // heart-rate-summary.component.ts
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { HeartRateService } from '../../services/heart-rate.service';
 import Chart, { ChartConfiguration } from 'chart.js/auto';
 
@@ -12,11 +12,13 @@ import Chart, { ChartConfiguration } from 'chart.js/auto';
 
 export class HeartRateSummaryComponent {
   @ViewChild('heartRateChart') heartRateChart: ElementRef;
+  @Input() selectedDays: number = 7; // Default value for number of days
+  @Output() summaryGenerated: EventEmitter<void> = new EventEmitter<void>();
     
-    selectedDays: number = 7; // Default value for number of days
     showChart: boolean = false;
     showSpinner: boolean = false;
     heartRateSummaryData: any = {};
+    chartInstance: Chart;
 
   constructor(private heartRateService: HeartRateService) { }
   
@@ -26,11 +28,8 @@ export class HeartRateSummaryComponent {
   generateSummary(): void {
     
     this.showSpinner = true;
-
     this.heartRateService.getHeartRateZoneSummary(this.selectedDays).subscribe(data => {
-      
       this.showChart = true;
-
       setTimeout(()=>{                           
         this.renderChart(data);
         this.showSpinner = false;
@@ -41,6 +40,7 @@ export class HeartRateSummaryComponent {
       console.error('Error fetching heart rate summary:', error);
       this.showSpinner = false; // Hide spinner in case of error
     });
+    this.summaryGenerated.emit();
   }
 
   renderChart(data: any): void {
@@ -53,6 +53,9 @@ export class HeartRateSummaryComponent {
 
     // Clear the canvas
     ctx.clearRect(0, 0, this.heartRateChart.nativeElement.width, this.heartRateChart.nativeElement.height);
+    if (this.chartInstance) {
+      this.chartInstance.destroy();
+    }
 
     const labels = Object.keys(data);
     const graphData = Object.values(data) as number[] ;
@@ -92,7 +95,7 @@ export class HeartRateSummaryComponent {
         }
     };
 
-    new Chart(ctx, chartConfig);
+    this.chartInstance = new Chart(ctx, chartConfig);
 }
 
 }

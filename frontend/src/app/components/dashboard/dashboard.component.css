@@ -1,19 +1,47 @@
 .dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 20px;
-  height: 90vh;
-  margin: 10px; 
-  margin-right: 35px;
+  grid-gap: 20px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fc4c02;
 }
 
+.search-bar {
+  grid-column: 1 / span 3; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 10px 20px;
+  background-color: #fc4c02; 
+  border-radius: 10px; 
+  border-bottom: 1px solid #ccc; 
+}
+
+.search-bar select {
+  padding: 10px;
+  margin-right: 10px; 
+  border: none;
+  border-radius: 5px;
+  background-color: #fff; 
+  font-size: 16px;
+  color: #333;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px; 
+}
 
 .chart-container {
   padding: 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 10px; 
-  margin-right: 35px;
+  border-radius: 10px;
+  background-color: #fff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
