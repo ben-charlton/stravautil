@@ -1,23 +1,29 @@
-# Use the official Node.js 14 image as a parent image
-FROM node:14
+# Use the official Node.js image as the base image
+FROM node:latest AS builder
 
-# Set the working directory in the container
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /frontend
 
-# Copy package.json and package-lock.json to the container
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
-
-# Install Angular CLI globally
-RUN npm install -g @angular/cli@latest
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copy the rest of the application files to the working directory
 COPY . .
 
-# Make port 4200 available to the world outside this container
-EXPOSE 4200
+# Build the Angular app
+RUN npm run build
 
-# Command to start the Angular development server
-CMD ["npm", "start"]
+# Use Nginx to serve the built Angular app
+FROM nginx:latest
+
+# Copy the built Angular app from the previous stage
+COPY --from=builder ./frontend/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Command to run the nginx server
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,4 +1,11 @@
 {
+  "name": "stravautil-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "ng lint",
+    "start": "ng serve",
+    "build": "ng build"
+  },
   "dependencies": {
     "@angular/animations": "^17.3.0",
     "@angular/cdk": "^17.3.1",
@@ -26,8 +33,5 @@
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
     "eslint": "^8.57.0"
-  },
-  "scripts": {
-    "lint": "ng lint"
   }
 }

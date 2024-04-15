@@ -12,6 +12,7 @@ import { HeartRateSummaryComponent } from './components/heart-rate-summary/heart
 import { LoginComponent } from './components/login/login.component';
 import { AuthCallbackComponent } from './components/login/auth-callback.component';
 import { CadenceSummaryComponent } from './components/cadence-summary/cadence-summary.component';
+import { DistanceSummaryComponent } from './components/distance-summary/distance-summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CadenceSummaryComponent } from './components/cadence-summary/cadence-su
     HeartRateSummaryComponent,
     LoginComponent, 
     AuthCallbackComponent,
-    CadenceSummaryComponent
+    CadenceSummaryComponent,
+    DistanceSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+<div class="distance-summary">
+    <h2>Weekly Distance Summary</h2>
+    <p>Average distance over time</p>
+    <canvas #distanceChart *ngIf="showChart" width="400" height="400" id="distanceChart"></canvas>
+    <div *ngIf="showSpinner" class="spinner-overlay">
+      <div class="spinner"></div>
+    </div>
+  </div>

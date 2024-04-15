@@ -7,16 +7,16 @@ import { environment } from 'src/environments/dev';
   providedIn: 'root'
 })
 
-export class CadenceService {
+export class DistanceService {
   
   private apiUrl = environment.apiBase;
 
   constructor(private http: HttpClient) { }
 
-  getCadenceSummary(days: number): Observable<any> {
+  getDistanceSummary(days: number): Observable<any> {
     const token = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<any>(`${this.apiUrl}/cadence/cadence-summary?days=${days}`, { headers });
+    return this.http.get<any>(`${this.apiUrl}/distance/distance-summary?days=${days}`, { headers });
   }
   
 }

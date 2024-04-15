@@ -11,8 +11,10 @@ def send_strava_request(token=None, path=None):
     try:
         cached_response = redis_client.get(path + '_' + token)
         if cached_response:
-            print('cached!')
             return (json.loads(cached_response))
+        # TODO:
+        # This isn't caching calls to e.g. activities?after=1712576167.816983 because the epoch changes every time you hit it
+        # Maybe it only needs to take a rounded number into account? So that its to the nearest day for example.
         else: 
             headers = {"Authorization": token}
             url = "https://www.strava.com/api/v3/" + path
