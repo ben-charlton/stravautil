@@ -1,6 +1,7 @@
 # stravautil
 
-Designed by athletes, for athletes
+Designed by athletes, for athletes. This is a web-app that allows users to view a visual graph of their most recent activities data, 
+including average heart rate and time spent in minutes in each heart rate zone
 
 ## Getting Started for Developers
 
